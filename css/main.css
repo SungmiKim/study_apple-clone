@@ -28,6 +28,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 10;
 }
 
 .local-nav {
@@ -38,6 +39,7 @@ a {
   height: 52px;
   border-bottom: 1px solid #ddd;
   padding: 0 1rem;
+  z-index: 11;
 }
 
 .global-nav-links,
@@ -69,12 +71,14 @@ a {
 
 .scroll-section {
   padding-top: 50vh;
-  border: 3px solid red;
 }
 
 #scroll-section-0 h1 {
   font-size: 4rem;
   text-align: center;
+  position: relative;
+  z-index: 5;
+  top: -10vh;
 }
 
 .main-message {
@@ -105,11 +109,11 @@ a {
 }
 
 .description {
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 0 1rem;
   font-size: 1.2rem;
   color: #888;
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 .description strong {
@@ -128,6 +132,16 @@ a {
   width: 1px;
   height: 100px;
   background: rgb(29, 29, 31);
+}
+
+#scroll-section-2 .b {
+  top: 10%;
+  left: 40%;
+}
+
+#scroll-section-2 .c {
+  top: 15%;
+  left: 45%;
 }
 
 .mid-message {
@@ -173,6 +187,17 @@ a {
   display: block;
 }
 
+.sticky-elem-canvas {
+  top: 0;
+  height: 100%;
+}
+
+.sticky-elem-canvas canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
 @media (min-width: 1024px) {
   #scroll-section-0 h1 {
     font-size: 9vw;
@@ -198,8 +223,17 @@ a {
     font-size: 1.5vw;
   }
 
-  .sticky-elem.desc-message {
+  .desc-message {
     width: 20%;
+  }
+
+  #scroll-section-2 .b {
+    top: 20%;
+    left: 53%;
+  }
+
+  #scroll-section-2 .c {
+    left: 55%;
   }
 
   .mid-message {
