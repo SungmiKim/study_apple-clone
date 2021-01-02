@@ -42,6 +42,13 @@ a {
   z-index: 11;
 }
 
+.local-nav-sticky .local-nav {
+  position: fixed;
+  top: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: saturate(180%) blur(15px);
+}
+
 .global-nav-links,
 .local-nav-links {
   max-width: 1000px;
@@ -160,7 +167,7 @@ a {
 
 .canvas-caption {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: -8em auto 0;
   color: #888;
   padding: 0 1rem;
   font-size: 1.2rem;
@@ -211,6 +218,64 @@ a {
   align-items: center;
 }
 
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background: white;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.before-load .loading {
+  opacity: 1;
+}
+
+@keyframes loading-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-circle-ani {
+  0% {
+    stroke-dashoffset: 157;
+  }
+  75% {
+    stroke-dashoffset: -147;
+  }
+  100% {
+    stroke-dashoffset: -157;
+  }
+}
+
+.loading-circle {
+  width: 54px;
+  height: 54px;
+  animation: loading-spin 3s infinite;
+}
+
+.loading-circle circle {
+  stroke: black;
+  stroke-width: 4;
+  stroke-dasharray: 157;
+  stroke-dashoffset: 0;
+  /* stroke-dashoffset: -157; */
+  fill: transparent;
+  animation: loading-circle-ani 1s infinite;
+  /* transition: 1s; */
+}
+/* 
+.loading-circle:hover circle {
+  stroke-dashoffset: -157;
+} */
+
 @media (min-width: 1024px) {
   #scroll-section-0 h1 {
     font-size: 9vw;
@@ -222,6 +287,7 @@ a {
 
   .description {
     font-size: 2rem;
+    padding: 0;
   }
 
   .description strong {
@@ -250,10 +316,13 @@ a {
   }
 
   .mid-message {
+    padding: 0;
+    width: 1000px;
     font-size: 4vw;
   }
 
   .canvas-caption {
+    padding: 0;
     font-size: 2rem;
   }
 }
