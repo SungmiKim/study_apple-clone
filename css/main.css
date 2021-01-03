@@ -25,6 +25,10 @@ body.before-load {
   overflow: hidden;
 }
 
+.container {
+  overflow-x: hidden;
+}
+
 .global-nav {
   height: 44px;
   padding: 0 1rem;
